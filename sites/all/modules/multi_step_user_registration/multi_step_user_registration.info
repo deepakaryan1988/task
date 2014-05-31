@@ -1,0 +1,6 @@
+name = Multi Step User Registration
+description = "Provides multi step User Registration Form"
+package = Users
+core = 7.x
+version = "7.x-1.0"
+core = "7.x"

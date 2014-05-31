@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Provide Multi-step User registration Form.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function multi_step_user_registration_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == "step_step_social_information") {
+    $form['buttons']['skip'] = array(
+      '#type' => 'submit',
+      '#value' => t('Skip'),
+      '#next' => array('next'),
+      '#submit' => array('multi_step_user_registration_next'),
+      '#weight' => '-1500',
+    );
+  }
+}
+
+/**
+ * Submit callback function.
+ */
+function multi_step_user_registration_next($form, &$form_state) {
+  $form_state['redirect'] = 'user/register/interest';
+}
